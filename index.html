@@ -45,7 +45,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 @media(max-width:900px){#nav{padding:0 20px;}.nav-menu{display:none;}}
 
 /* ── HERO ─────────────────────────────────── */
-#hero{min-height:100vh;display:flex;align-items:center;padding:100px 60px 80px;position:relative;overflow:hidden;}  
+#hero{min-height:100vh;display:flex;align-items:center;padding:100px 60px 80px;position:relative;overflow:hidden;}
 .h-orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;}
 .h-orb-1{width:700px;height:700px;background:radial-gradient(circle,rgba(232,184,75,.1),transparent 70%);top:-200px;right:-150px;}
 .h-orb-2{width:500px;height:500px;background:radial-gradient(circle,rgba(45,212,191,.07),transparent 70%);bottom:-150px;left:-80px;}
@@ -65,7 +65,23 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 .btn-g:hover{opacity:.85;transform:translateY(-2px);}
 .btn-o{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:12px 28px;border:1.5px solid var(--border2);color:var(--muted2);border-radius:3px;text-decoration:none;transition:border-color .2s,color .2s;}
 .btn-o:hover{border-color:var(--gold);color:var(--gold);}
-.h-stats{display:flex;flex-direction:column;gap:14px;}
+.h-stats{
+margin-top:40px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px;
+max-width:520px;
+}
+@media(max-width:600px){
+
+.h-stats{
+grid-template-columns:1fr;
+}
+
+}
+.stat-c{
+padding:18px 20px;
+}
 .stat-c{background:var(--bg3);border:1px solid var(--border);padding:20px 24px;border-radius:var(--r);position:relative;overflow:hidden;}
 .stat-c::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold2));}
 .stat-n{font-family:'Syne',sans-serif;font-size:38px;font-weight:800;color:var(--white);line-height:1;}
@@ -228,6 +244,82 @@ section{padding:110px 60px;}
 .cf-ok{display:none;padding:13px 18px;border:1px solid var(--teal);color:var(--teal);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:1px;border-radius:4px;text-align:center;}
 @media(max-width:900px){.ct-g{grid-template-columns:1fr;}}
 
+/* ── CONTACT FORM ───────────────────────── */
+
+.cf{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.cf label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  color:var(--muted);
+  display:block;
+  margin-bottom:6px;
+}
+
+.cf input,
+.cf textarea{
+  width:100%;
+  background:var(--bg3);
+  border:1px solid var(--border);
+  color:var(--text);
+  padding:12px 16px;
+  font-family:'DM Sans',sans-serif;
+  font-size:14px;
+  outline:none;
+  border-radius:4px;
+  transition:border-color .2s, box-shadow .2s;
+}
+
+.cf input:focus,
+.cf textarea:focus{
+  border-color:var(--gold);
+  box-shadow:0 0 0 1px rgba(232,184,75,.2);
+}
+
+.cf textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+.cf-btn{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  padding:14px 28px;
+  background:linear-gradient(130deg,var(--gold),var(--gold2));
+  color:#07080d;
+  border:none;
+  border-radius:3px;
+  cursor:none;
+  font-weight:500;
+  transition:opacity .2s,transform .2s;
+  align-self:flex-start;
+}
+
+.cf-btn:hover{
+  opacity:.85;
+  transform:translateY(-2px);
+}
+
+.cf-ok{
+  display:none;
+  padding:13px 18px;
+  border:1px solid var(--teal);
+  color:var(--teal);
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:1px;
+  border-radius:4px;
+  text-align:center;
+}
+
 /* ── FOOTER ───────────────────────────────── */
 footer{padding:28px 60px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
 .ft-logo{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--muted2);}
@@ -243,6 +335,194 @@ footer{padding:28px 60px;border-top:1px solid var(--border);display:flex;justify
 /* ── SCROLL REVEAL ────────────────────────── */
 .reveal{opacity:0;transform:translateY(32px);transition:opacity .7s ease,transform .7s ease;}
 .reveal.in{opacity:1;transform:translateY(0);}
+
+/* ─────────────────────────────────────────────
+RESPONSIVE GLOBAL FIXES
+Add this at the VERY END of your CSS
+───────────────────────────────────────────── */
+
+img{
+max-width:100%;
+height:auto;
+}
+
+/* ───────── TABLETS & SMALL LAPTOPS ───────── */
+
+@media (max-width:1024px){
+
+section{
+padding:90px 40px;
+}
+
+.h-inner{
+gap:40px;
+}
+
+.pg{
+grid-template-columns:1fr;
+}
+
+.g3{
+grid-template-columns:1fr 1fr;
+}
+
+.certs{
+grid-template-columns:1fr 1fr;
+}
+
+.str-g{
+grid-template-columns:repeat(3,1fr);
+}
+
+}
+
+/* ───────── MOBILE DEVICES ───────── */
+
+@media (max-width:900px){
+
+#nav{
+padding:0 20px;
+}
+
+/* HERO */
+
+#hero{
+padding:110px 20px 80px;
+}
+
+.h-inner{
+grid-template-columns:1fr;
+gap:40px;
+}
+
+.h-name{
+font-size:42px;
+white-space:normal;
+}
+
+.h-stats{
+flex-direction:row;
+flex-wrap:wrap;
+}
+
+/* SECTIONS */
+
+section{
+padding:80px 20px;
+}
+
+.s-title{
+font-size:32px;
+}
+
+/* ABOUT */
+
+.ab-grid{
+grid-template-columns:1fr;
+gap:48px;
+}
+
+/* EDUCATION */
+
+.edu-grid{
+grid-template-columns:1fr;
+}
+
+/* PROJECTS */
+
+.pg{
+grid-template-columns:1fr;
+}
+
+/* CAD GALLERY */
+
+.g2,
+.g3{
+grid-template-columns:1fr 1fr;
+}
+
+.g-thumb img{
+height:170px;
+}
+
+/* EXPERIENCE */
+
+.ex-body{
+padding:28px 20px;
+}
+
+/* CERTIFICATIONS */
+
+.certs{
+grid-template-columns:1fr 1fr;
+}
+
+/* STRENGTHS */
+
+.str-g{
+grid-template-columns:1fr 1fr;
+}
+
+/* CONTACT */
+
+.ct-g{
+grid-template-columns:1fr;
+gap:40px;
+}
+
+/* FOOTER */
+
+footer{
+padding:24px 20px;
+flex-direction:column;
+align-items:flex-start;
+gap:12px;
+}
+
+}
+
+/* ───────── SMALL PHONES ───────── */
+
+@media (max-width:500px){
+
+.h-name{
+font-size:34px;
+}
+
+.s-title{
+font-size:26px;
+}
+
+.stat-n{
+font-size:30px;
+}
+
+.g2,
+.g3{
+grid-template-columns:1fr;
+}
+
+.certs{
+grid-template-columns:1fr;
+}
+
+.str-g{
+grid-template-columns:1fr;
+}
+
+.g-thumb img{
+height:150px;
+}
+
+}
+
+/* ───────── IMAGE RESPONSIVE FIX ───────── */
+
+.g-thumb img{
+height:clamp(150px,25vw,210px);
+}
+
+
 </style>
 </head>
 <body>
@@ -280,21 +560,45 @@ footer{padding:28px 60px;border-top:1px solid var(--border);display:flex;justify
   <div class="h-grid"></div>
   <div class="h-inner">
     <div>
-      <h1 class="h-name">KRISHNA<span class="g">PRABU P</span></h1>
-      <div class="h-role">Mechanical Design Engineer</div>
-      <p class="h-bio">
-        <strong>AutoCAD &amp; SolidWorks professional</strong> — CGPA 8.45,
-        Experienced in 2D drafting, 3D parametric modeling, assembly design, and embedded systems.
-      </p>
-      <div class="h-btns">
-        <a href="#projects" class="btn-g">View My Work</a>
-        <a href="#contact" class="btn-o">Contact Me</a>
-      </div>
-    </div>
-    <div class="h-stats">
-      <div class="stat-c"><div class="stat-n">8<em>.45</em></div><div class="stat-l">CGPA</div></div>
-      <div class="stat-c"><div class="stat-n">95<em>%</em></div><div class="stat-l">Diploma</div></div>
-      <div class="stat-c"><div class="stat-n">240<em>h</em></div><div class="stat-l">CAD Certified</div></div>
+      <div class="h-inner">
+  <div>
+
+```
+<h1 class="h-name">KRISHNA<span class="g">PRABU P</span></h1>
+<div class="h-role">Mechanical Design Engineer</div>
+
+<p class="h-bio">
+  <strong>AutoCAD & SolidWorks professional</strong> — CGPA 8.45, First Class with Distinction.
+  Experienced in 2D drafting, 3D parametric modeling, assembly design, and embedded systems.
+</p>
+
+<div class="h-btns">
+  <a href="#projects" class="btn-g">View My Work</a>
+  <a href="#contact" class="btn-o">Contact Me</a>
+</div>
+
+<!-- STATS MOVED HERE -->
+<div class="h-stats">
+  <div class="stat-c">
+    <div class="stat-n">8<em>.45</em></div>
+    <div class="stat-l">CGPA</div>
+  </div>
+
+  <div class="stat-c">
+    <div class="stat-n">95<em>%</em></div>
+    <div class="stat-l">Diploma</div>
+  </div>
+
+  <div class="stat-c">
+    <div class="stat-n">240<em>h</em></div>
+    <div class="stat-l">CAD Certified</div>
+  </div>
+</div>
+```
+
+  </div>
+</div>
+
     </div>
   </div>
   <div class="h-scroll"><div class="h-line"></div>Scroll to explore</div>
@@ -305,7 +609,7 @@ footer{padding:28px 60px;border-top:1px solid var(--border);display:flex;justify
   <div class="s-hd"><span class="s-num">01</span><h2 class="s-title">About Me</h2><div class="s-rule"></div></div>
   <div class="ab-grid">
     <div class="reveal">
-      <p class="ab-p">I am a <strong>Mechanical Engineering student (BE, 2023–2026)</strong> at Annai College of Engineering and Technology, Kumbakonam, currently holding a CGPA of <strong>8.45 </strong>.</p>
+      <p class="ab-p">I am a <strong>Mechanical Engineering student (BE, 2023–2026)</strong> at Annai College of Engineering and Technology, Kumbakonam, currently holding a CGPA of <strong>8.45 — First Class with Distinction</strong>.</p>
       <p class="ab-p">My foundation was built during a <strong>Diploma in Mechanical Engineering</strong> at Government Polytechnic College, Valangaiman, where I scored 95%. I gained real-world manufacturing exposure through an internship at <strong>KALI BMH SYSTEMS (P) LTD</strong> — a heavy engineering plant — working on CNC machining, quality inspection, and design support.</p>
       <p class="ab-p">I am passionate about <strong>precision-driven design</strong>: from dimension-accurate 2D drafting in AutoCAD to full parametric 3D assemblies in SolidWorks. I also enjoy applied problem solving — such as designing an embedded anti-collision system using Arduino and Embedded C.</p>
       
@@ -367,7 +671,7 @@ footer{padding:28px 60px;border-top:1px solid var(--border);display:flex;justify
       <div class="pc-n">02</div>
       <div class="pc-type">Diploma Final Year Project</div>
       <div class="pc-title">Universal Belt Conveyor System</div>
-      <p class="pc-desc">Designed a multi-directional belt conveyor system capable of operating in horizontal, inclined, and vertical directions for flexible material handling. Integrated a 360° rotating base mechanism to allow full directional movement and easy positioning in limited workspace. Ensured smooth material transfer using a stable belt drive system with proper support and alignment. Developed a compact and mobile structure suitable for industrial and educational demonstration applications.</p>
+      <p class="pc-desc">Designed and fabricated a mobile belt conveyor for efficient material handling. Improved the drive mechanism by replacing the V-belt with a chain drive to eliminate slippage. Performed milling, drilling, and welding operations; selected components including DC motor, spur gear, worm gear, bearings, and idlers. Conducted test runs and analyzed chain drive advantages for torque transmission.</p>
       <div class="pc-tags">
         <span class="pc-tag">Chain Drive</span><span class="pc-tag">Conveyor Belt</span><span class="pc-tag">DC Motor</span><span class="pc-tag">Spur Gear</span><span class="pc-tag">Worm Gear</span>
       </div>
@@ -613,9 +917,35 @@ Parametric 3D connecting rod model designed in SolidWorks using Extrude, Revolve
         <span class="ct-link"><div class="ct-ico">📍</div><div><div class="ct-lbl">Location</div><div class="ct-v">Thanjavur, Tamil Nadu, India</div></div></span>
       </div>
     </div>
-    <div class="reveal">
-      
-    </div>
+   <form class="cf" onsubmit="sendMsg(); return false;">
+  
+  <div>
+    <label>Name</label>
+    <input id="fn" type="text" placeholder="Your name">
+  </div>
+
+  <div>
+    <label>Email</label>
+    <input id="fe" type="email" placeholder="your@email.com">
+  </div>
+
+  <div>
+    <label>Subject</label>
+    <input id="fs" type="text" placeholder="Opportunity / Project">
+  </div>
+
+  <div>
+    <label>Message</label>
+    <textarea id="fm" placeholder="Tell me about the opportunity..."></textarea>
+  </div>
+
+  <button class="cf-btn">Send Message →</button>
+
+  <div class="cf-ok" id="cf-ok">
+    ✓ Message prepared. Your email client will open.
+  </div>
+
+</form>
   </div>
 </section>
 
